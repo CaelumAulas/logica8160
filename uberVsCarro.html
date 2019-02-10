@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+
+<h1>Uber vs Carro</h1>
+
+<h2>Uber</h2>
+
+<script src="pegaNumero.js"></script>
+
+<script>
+    // chamar a função
+    msgPrompt = "Digite a distância"
+    var distancia = pegaNumero()
+
+    var velocidadeMedia = 25
+
+    var tempoEmMinutos = distancia / velocidadeMedia * 60
+
+    var totalUber = 2 + (distancia * 1.40) + (tempoEmMinutos * 0.28)
+
+    document.write(`
+        Tempo: ${tempoEmMinutos} minutos
+        <br>
+        Total: R$ ${totalUber.toFixed(2).replace(".", ",")}
+    `)
+</script>
+
+<h2>Carro</h2>
+
+<script>
+
+    var autonomia = 7
+    var precoLitroGasolina = 4.5
+
+    var totalGasolina = distancia / autonomia * precoLitroGasolina
+
+    msgPrompt= "Digite o estacionamento"
+    // chamar
+    var totalEstacionamento = pegaNumero()
+
+    var totalCarro = totalGasolina + totalEstacionamento
+    
+    
+    var totalGasolinaFormatado = totalGasolina.toFixed(2).replace(".", ",")
+    var totalEstacionamentoFormatado = totalEstacionamento.toFixed(2).replace(".", ",")
+    var totalCarroFormatado = totalCarro.toFixed(2).replace(".", ",")
+
+    // Template com interpolação de strings
+    document.write(`
+        Gasolina: R$ ${totalGasolinaFormatado}
+        <br>
+        Estacionamento: R$ ${totalEstacionamentoFormatado}
+        <br>
+        Total: R$  ${totalCarroFormatado}
+    `)
+</script>
